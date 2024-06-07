@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+            integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+            integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <title>CRUD CLOUDIN</title>
+    </head>
+    <body>
+        <div class="pos-f-t">
+            <div class="collapse" id="navbarToggleExternalContent">
+                <div class="bg-dark p-4">
+                    <h5 class="text-white h4">Equipe CLAUDIN</h5>
+                    <span class="text-muted"
+                        >Equipe: Artur Tabosa, Bruno Xavier, Gabriel Loyo, Henrique Chen, Hugo Rafael, Yago Oliveira</span
+                    >
+                </div>
+            </div>
+            <nav class="navbar navbar-dark bg-dark">
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarToggleExternalContent"
+                    aria-controls="navbarToggleExternalContent"
+                    aria-expanded="false"
+                    aria-label="Alterna navegação"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </nav>
+        </div>
+        <div class="container mt-5">
+            <form class="needs-validation" novalidate>
+                <h1 class="mb-4" style="text-align: center">Cadastrar Prato</h1>
+                <div class="form-row">
+                    <div class="col-md-4 mb-3">
+                        <input type="hidden" value="" name="id" id="idPrato" />
+                        <label for="nomeDoPrato">Nome do prato</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="nomeDoPrato"
+                            name="nomeDoPrato"
+                            placeholder="Nome do prato"
+                            value=""
+                            required
+                        />
+                        <div class="valid-feedback">
+                            Nome do prato preenchido
+                        </div>
+                        <div class="invalid-feedback">
+                            Por favor, preencha o nome do prato
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="tipoCarne">Tipo de carne</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="tipoCarne"
+                            name="tipoCarne"
+                            placeholder="Tipo de carne"
+                            value=""
+                            required
+                        />
+                        <div class="valid-feedback">
+                            Tipo de carne preenchido
+                        </div>
+                        <div class="invalid-feedback">
+                            Por favor, preencha o tipo de carne
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-4 mb-3">
+                        <label for="acompanhamentos">Acompanhamentos</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="acompanhamentos"
+                            name="acompanhamentos"
+                            placeholder="Acompanhamentos"
+                            value=""
+                            required
+                        />
+                        <div class="valid-feedback">
+                            Acompanhamentos preenchidos
+                        </div>
+                        <div class="invalid-feedback">
+                            Por favor, preencha os acompanhamentos
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="bebidas">Bebidas</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="bebidas"
+                            name="bebidas"
+                            placeholder="Bebidas"
+                            value=""
+                            required
+                        />
+                        <div class="valid-feedback">Bebidas preenchidas</div>
+                        <div class="invalid-feedback">
+                            Por favor, preencha as bebidas
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-8 mb-3">
+                        <label for="descricaoDoPrato">Descrição do Prato</label>
+                        <textarea
+                            class="form-control"
+                            id="descricaoDoPrato"
+                            name="descricaoDoPrato"
+                            placeholder="Descrição do Prato"
+                            required
+                        ></textarea>
+                        <div class="valid-feedback">
+                            Descrição do prato preenchida
+                        </div>
+                        <div class="invalid-feedback">
+                            Por favor, preencha a descrição do prato
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-4 mb-3">
+                        <label for="precoPrato">Preço do prato</label>
+                        <input
+                            type="number"
+                            class="form-control"
+                            id="precoPrato"
+                            name="precoPrato"
+                            placeholder="Preço do prato"
+                            value=""
+                            required
+                        />
+                        <div class="valid-feedback">
+                            Preço do prato preenchido
+                        </div>
+                        <div class="invalid-feedback">
+                            Por favor, preencha o preço do prato
+                        </div>
+                    </div>
+                </div>
+                <button
+                    id="salvarPrato"
+                    class="btn btn-primary mr-2"
+                    type="submit"
+                >
+                    <i class="fa-solid fa-floppy-disk"></i> Salvar
+                </button>
+                <button
+                    onclick="mostrarTable()"
+                    class="btn btn-danger"
+                    type="reset"
+                >
+                    <i class="fa-solid fa-xmark"></i> Cancelar
+                </button>
+            </form>
+            <div id="tableRestaurante" class="container mt-5">
+                <h1 style="text-align: center">Lista de Pratos</h1>
+                <button
+                    onclick="mostrarForm('Salvar')"
+                    class="btn btn-primary float-right py-2 mb-2"
+                    type="submit"
+                >
+                    <i class="fa-solid fa-plus"></i> Adicionar
+                </button>
+                <div class="input-group mb-3">
+                    <input
+                        type="text"
+                        class="form-control mr-3"
+                        placeholder="Digite o termo"
+                        aria-label="search"
+                        id="search"
+                    />
+                    <button
+                        onclick="buscarPratos()"
+                        class="btn btn-primary float-right py-2 mb-2 mr-2"
+                        type="submit"
+                    >
+                        <i class="fa-solid fa-magnifying-glass"></i>Buscar
+                    </button>
+                    <button
+                        onclick="limparBusca()"
+                        class="btn btn-danger float-right py-2 mb-2"
+                        type="submit"
+                    >
+                        <i class="fa-regular fa-circle-check"></i> Limpar
+                    </button>
+                </div>
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col" class="mt-5 mb-5">ID</th>
+                            <th scope="col" class="mt-5 mb-5">Prato</th>
+                            <th scope="col" class="mt-5 mb-5">Carne</th>
+                            <th scope="col" class="mt-5 mb-5">Acompanhamentos</th>
+                            <th scope="col" class="mt-5 mb-5">Bebidas</th>
+                            <th scope="col" class="mt-5 mb-5">Descrição do Prato</th>
+                            <th scope="col" class="mt-5 mb-5">Preço</th>
+                            <th scope="col" class="mt-5 mb-5">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+        <script src="\script.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script>
+            // Exemplo de JavaScript inicial para desativar envios de formulário, se houver campos inválidos.
+            (function () {
+                "use strict";
+                window.addEventListener(
+                    "load",
+                    function () {
+                        // Pega todos os formulários que nós queremos aplicar estilos de validação Bootstrap personalizados.
+                        var forms =
+                            document.getElementsByClassName("needs-validation");
+                        // Faz um loop neles e evita o envio
+                        var validation = Array.prototype.filter.call(
+                            forms,
+                            function (form) {
+                                form.addEventListener(
+                                    "submit",
+                                    function (event) {
+                                        if (form.checkValidity() === false) {
+                                            event.preventDefault();
+                                            event.stopPropagation();
+                                        }
+                                        form.classList.add("was-validated");
+                                    },
+                                    false,
+                                );
+                            },
+                        );
+                    },
+                    false,
+                );
+            })();
+        </script>
+
+        <script
+            src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"
+        ></script>
+    </body>
+</html>
